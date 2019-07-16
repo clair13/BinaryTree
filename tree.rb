@@ -49,10 +49,17 @@ class BinaryTree
     until stack.empty?
       node = stack.pop
       return node if node.value == target_value
-      stack << node.right unless nose.right.nil?
+      stack << node.right unless node.right.nil?
       stack << node.left unless node.left.nil?  
     end
     nil
   end
-      
+  
+
+  def dfs_rec(node = @root,target_value)
+    return nil if node.empty?
+    return node if node.value == target_value
+    dfs_rec(node.left, target_value) unless node.left.nil?
+    dfs_rec(node.right, target_value) unless node.right.nil?
+  end
 end
