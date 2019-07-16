@@ -32,5 +32,27 @@ class BinaryTree
       return node
     end
   end
+
+  def breadth_first_search(target_value)
+    queue = [@root]
+    until queue.empty?
+      node = queue.shift
+      return node if node.value == target_value
+      queue << node.left unless node.left.nil?
+      queue << node.right unless node.right.nil?
+    end
+    nil
+  end
+
+  def depth_first_search(target_value)
+    stack = [@root]
+    until stack.empty?
+      node = stack.pop
+      return node if node.value == target_value
+      stack << node.right unless nose.right.nil?
+      stack << node.left unless node.left.nil?  
+    end
+    nil
+  end
       
 end
